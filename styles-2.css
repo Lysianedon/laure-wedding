@@ -1,0 +1,347 @@
+:root {
+    --clr-neon: hsl(244, 100%, 54%);
+    --clr-white-neon: white;
+    --darkblue: #010211;
+    --clr-bg: hsl(0, 0%, 100%);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Forum&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+.playfair-display-rsvp {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.bodoni-moda-rsvp {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.forum-regular {
+    font-family: "Forum", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+
+  
+@keyframes move-clouds {
+    0% {
+        background-position: 0 0;
+    }
+    10% {
+        background-position: 10% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+body {
+    background-color: black;
+    /* font-family: Arial, sans-serif; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./img/bg.png");
+    background-size: cover;
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+
+@keyframes neon-border {
+    0%, 100% {
+        box-shadow: 0 0 5px white, 0 0 15px white, 0 0 25px rgba(255, 255, 255, 0.5), 0 0 35px rgba(255, 255, 255, 0.2);
+        border-color: white;
+    }
+    20% {
+        box-shadow: 0 0 8px white, 0 0 18px white, 0 0 28px rgba(255, 255, 255, 0.6), 0 0 38px rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.6);
+    }
+    40% {
+        box-shadow: 0 0 12px white, 0 0 22px white, 0 0 32px rgba(255, 255, 255, 0.7), 0 0 42px rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.7);
+    }
+    60% {
+        box-shadow: 0 0 18px white, 0 0 28px white, 0 0 38px rgba(255, 255, 255, 0.8), 0 0 48px rgba(255, 255, 255, 0.6);
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+    80% {
+        box-shadow: 0 0 12px white, 0 0 22px white, 0 0 32px rgba(255, 255, 255, 0.7), 0 0 42px rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.cardWrapper {
+    position: relative;
+    min-width: 375px;
+    width: 40vw;
+    width: 30vw;
+    height: 65vh;
+    cursor: pointer;
+    perspective: 1000px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.2s ease-out;
+    border-radius: 10px; /* Pour arrondir légèrement les coins */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Ajoute une légère ombre */
+}
+
+.cardFace {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* background-size: contain; */
+    
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0 0 15px white, 0 0 25px white, 0 0 35px white;
+    animation: neon-border 4s infinite ease-in-out;
+}
+
+.front {
+    background-image: url('./img/front-mobile.png');
+    background-size: cover;
+}
+
+.back {
+    background-image: url('./img/verso-desktop.png');
+    background-image: url('./img/bg-with-moon-desktop.png');
+    transform: rotateY(180deg); 
+    border-color: white; 
+    background-size: contain;
+    background-size: cover;
+    background-position-y: 55%;
+    background-position-x: 55%;
+    animation: neon-border 10s infinite ease-in-out;
+    box-shadow: 0 0 25px white, 0 0 0px white, 0 0 30px white; 
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: #252a70 rgb(255, 255, 255);
+    scrollbar-width: thin;
+    /* background animation */
+    -webkit-animation: slidein 80s;
+    animation: slidein 30s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;                         
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top right; background-size:100%; }
+to {background-position: -100px 0px;background-size:90%;}
+}
+
+@keyframes slidein {
+from {background-position: top right;background-size:150%; }
+to {background-position: -100px 0px;background-size:150%;}
+
+}
+
+/*---------------------- CLOSE BTN ----------------------*/
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    padding: 0;
+    width: 40px;
+    height: 20px;
+    background: none;
+    border: none;
+    color: #ffffff; 
+    font-size: 1.7rem;
+    font-weight:100;
+    cursor: pointer;
+    outline: none;
+    line-height: 1;
+    transition: text-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+
+.close-btn:hover {
+    color: #040892;
+    text-shadow: 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff;
+}
+
+.close-btn:focus {
+    outline: none;
+}
+
+/*--------------------------- FORM--------------------------- */
+form {
+    width: fit-content;
+    height: auto;
+    max-height: fit-content;
+    margin: 0 auto;
+    padding: 50px; 
+    /* border: 2px solid green; */
+}
+
+.cardFace .back{
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.header-rsvp {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; 
+    position: sticky; 
+    top: 0; 
+    background-color: var(--darkblue); 
+    background-color: #03030C; 
+    background-color: transparent; 
+    backdrop-filter: blur(20px);
+    z-index: 10; 
+
+}
+
+h1 {
+    color: white;
+    margin: auto;
+    letter-spacing: 2px;
+    /* border: 2px solid gold; */
+}
+
+/* Pour réduire les marges et ajuster le contenu */
+.form-group {
+    margin: 3em 0;
+    /* padding: 1em 0; */
+    /* border: 3px solid rebeccapurple; */
+}
+
+label {
+    font-size: 1.2em;
+    margin-bottom: 0.4em;
+    color: white;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.6rem 0;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+    font-size: 0.95rem;
+    color: white;
+    margin-bottom: 0.8rem;
+}
+select{
+    border: 1px solid white;
+    width: max-content;
+    padding: 0.8rem 0.5em;
+    margin: 15px 0 0 0;
+}
+
+textarea {
+    min-height: 100px;
+    padding: 8px 15px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-bottom-color: #2a3084;
+}
+
+
+.radio-group {
+    margin-top: 15px;
+}
+
+.radio-option {
+    /* border: 1px solid orange; */
+    margin: 15px 0 0 15px;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.radio-option input[type="radio"] {
+    margin: 3px 0 0 0;
+    cursor: pointer;
+    width: 12%;
+    font: inherit;
+    width: 1.55em;
+    height: 1.10em;
+    border-radius: 50%;
+}
+
+.radio-option label {
+    /* font-size: 1rem; */
+    line-height: 150%;
+    /* display: block; */
+    margin: 0 0 0 10px;
+    cursor: pointer;
+}
+
+/* --------------------------SUBMIT BTN-------------------------- */
+.submit-btn,
+.disabled-btn {
+    display: block;
+    width: 50%;
+    margin: auto;
+    padding: 1rem 0;
+    border: none;
+    font-size: 1.05rem;
+    cursor: pointer;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    /* font-family: "Playfair Display", serif; */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: background-color 0.3s ease;
+    border-radius: 0.25em;
+    color: var(--clr-bg);
+    background-color:  var(--darkblue);
+}
+
+.disabled-btn {
+    background-color: #e7e5e5;
+    cursor: not-allowed;
+    color: #a2a2a2;
+}
+
+/* ------------NEON EFFEECT SUBMIT BUTTON------------ */
+.neon-button {
+    position: relative;
+    text-decoration: none;
+    box-shadow: 0 0 1em 0 white, 0 0 1.5em 0 white;
+    color: white;
+    background-color:  var(--darkblue);
+  }
+  
+  .neon-button:hover,
+  .neon-button:focus {
+    background-color: white;
+    color: black;
+  }
+  
+ 
+  
+/* TODO: close btn hover: sabre laster de diffe colors */
