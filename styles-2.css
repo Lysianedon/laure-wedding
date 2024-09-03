@@ -154,6 +154,7 @@ body {
   max-width: 600px;
   height: 70vh;
   min-height: 480px;
+  max-height: 760px;
   cursor: pointer;
   perspective: 1000px;
 }
