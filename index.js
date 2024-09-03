@@ -184,7 +184,16 @@ function submitForm(form, submitBtn) {
 
   emailjs.send(emailService, emailTemplate, emailData)
   .then(() => {
-      console.log('SUCCESS!');
+      const cardWrapper = document.querySelector(".cardWrapper");
+      const card = cardWrapper.querySelector(".card");
+      const notification = document.querySelector('.notification');
+      notification.style.visibility = 'visible';
+
+    setTimeout(() => {
+        notification.style.visibility = 'hidden'; 
+        flipCard(card);
+    }, 2000);
+
   }, (error) => {
 
       console.log('FAILED...', error);

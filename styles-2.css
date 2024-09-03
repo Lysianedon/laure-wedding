@@ -123,6 +123,27 @@ body {
   }
 }
 
+.notification {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  visibility: hidden;
+}
+
+.notification h6 {
+  text-align: center;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--darkblue);
+}
+
+.notification h6 img {
+  margin: 0px 0 0 7px;
+}
 .cardWrapper {
   position: relative;
   display: flex;
@@ -244,7 +265,6 @@ body {
   background-image: url("./img/bg-with-moon-desktop.png");
   transform: rotateY(180deg);
   border-color: white;
-  background-size: contain;
   background-size: cover;
   background-position-y: 55%;
   background-position-x: 55%;
@@ -535,6 +555,11 @@ select:focus {
   }
   form {
     padding: 30px;
+  }
+
+  .header-rsvp {
+    background-color: var(--darkblue);
+    padding: 15px;
   }
 
   form textarea {
