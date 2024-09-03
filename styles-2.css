@@ -87,6 +87,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  min-height: 100vh;
   background-image: url("./img/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -497,8 +498,9 @@ select:focus {
   .cardWrapper {
     width: 63vw;
     margin-right: 20px;
-    margin-top: -40px;
+    /* margin-top: -40px; */
     height: 510px;
+    transform: translate(0%, -2.5%);
   }
   .front .announce h6 {
     font-size: 0.76em;
