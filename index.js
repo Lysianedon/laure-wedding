@@ -187,10 +187,10 @@ function submitForm(form, submitBtn) {
       const cardWrapper = document.querySelector(".cardWrapper");
       const card = cardWrapper.querySelector(".card");
       const notification = document.querySelector('.notification');
-      notification.style.visibility = 'visible';
+      notification.style.display = 'block'; 
 
     setTimeout(() => {
-        notification.style.visibility = 'hidden'; 
+        notification.style.display = 'none'; 
         flipCard(card);
     }, 2000);
 
