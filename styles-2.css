@@ -487,6 +487,30 @@ select:focus {
 
 /* RESPONSIVE - RESPONSIVE - RESPONSIVE - RESPONSIVE */
 
+@media (min-width: 800px) and (max-width: 1440px) and (max-height: 1125px) and (orientation: landscape) {
+  .front .address {
+    font-size: 1.7em;
+    margin: -3.3vw 0 0 0em;
+  }
+  .front .address h6 span {
+    display: inline;
+  }
+  .front .illustration img {
+    max-width: 65%;
+    margin: 1.5vh 0px 0 0;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1440px) and (max-height: 1124px) and (orientation: landscape) {
+  .front .address {
+    display: none;
+  }
+  .front .illustration img {
+    max-width: 65%;
+    margin: 1.5vh 0px 0 0;
+  }
+}
+
 @media (max-width: 1024px) {
   .cardWrapper {
     width: 52vw;
