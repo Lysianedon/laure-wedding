@@ -147,35 +147,29 @@ function submitForm(form, submitBtn) {
     const formData = new FormData(form);
 
     const keyTranslations = {
-        name: "nom",
-        attendance: "presenceJourJ",
-        guests: "nombreParticipants",
-        children: "nombreEnfants",
-        transport: "modeTransport",
-        brunch: "presenceBrunch",
-        accommodation: "besoinHebergement",
-        diet: "restrictionsAlimentaires",
-        message: "commentaires"
+        name: "Nom et prénom",
+        attendance: "presence Jour J",
+        guests: "Nombre de personnes",
+        children: "Nombre d'enfants",
+        transport: "Mode de transport",
+        brunch: "Presence au brunch",
+        accommodation: "Besoin hebergement",
+        diet: "Restrictions alimentaires",
+        message: "Commentaires"
     };
     const data = {};
     
-
-    // Parcourir chaque paire clé-valeur dans formData
     for (let [name, value] of formData.entries()) {
-        // Filtrer ou traiter les données si nécessaire
-        if (value.trim() !== "") { // Ignorer les champs vides
+
+        if (value.trim() !== "") { 
             data[keyTranslations[name]] = value.trim();
         }
     }
 
-    // Pour l'instant, nous affichons les données dans une alerte
-    // alert("Formulaire soumis avec succès !\nDonnées :\n" + JSON.stringify(data, null, 2));
-
-    console.log(JSON.stringify(data, null, 2));
     const stringified_form = JSON.stringify(data, null, 2);
    
     const emailData = {
-    nom: data.nom || "",
+    nom: data[keyTranslations.name] || "",
     message: stringified_form,
     from_name: "Laure",
     reply_to: "l.mirroir.wedding@gmail.com",
@@ -192,15 +186,14 @@ function submitForm(form, submitBtn) {
     setTimeout(() => {
         notification.style.display = 'none'; 
         flipCard(card);
+        form.reset();
     }, 2000);
 
   }, (error) => {
 
       console.log('FAILED...', error);
   });
-
-    // Réinitialiser le formulaire
-    form.reset();
+    
     disableSubmitButton(submitBtn);
     resetConditionalDisplay();
 }
