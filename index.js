@@ -175,26 +175,29 @@ function submitForm(form, submitBtn) {
     reply_to: "l.mirroir.wedding@gmail.com",
     };
 
+    const loadingBtn = document.querySelector(".loading-btn");
+    loadingBtn.style.display = "block";
+    submitBtn.style.display = "none";
 
   emailjs.send(emailService, emailTemplate, emailData)
   .then(() => {
       const cardWrapper = document.querySelector(".cardWrapper");
       const card = cardWrapper.querySelector(".card");
       const notification = document.querySelector('.notification');
-      notification.style.display = 'block'; 
+      notification.style.display = 'flex'; 
+      loadingBtn.style.display = "none";
+      submitBtn.style.display = "block";
+      disableSubmitButton(submitBtn);
 
     setTimeout(() => {
         notification.style.display = 'none'; 
         flipCard(card);
         form.reset();
-    }, 2000);
+    }, 1900);
 
   }, (error) => {
-
       console.log('FAILED...', error);
-  });
-    
-    disableSubmitButton(submitBtn);
+  });  
     resetConditionalDisplay();
 }
 
