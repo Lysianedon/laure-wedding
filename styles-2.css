@@ -156,9 +156,9 @@ body {
   width: 40vw;
   min-width: 340px;
   max-width: 600px;
-  height: 70vh;
+  height: 78vh;
   min-height: 480px;
-  max-height: 750px;
+  max-height: 745px;
   cursor: pointer;
   perspective: 1000px;
 }
@@ -233,7 +233,7 @@ body {
 }
 
 .front .illustration img {
-  max-width: 60%;
+  max-width: 57%;
   height: auto;
   display: block;
   margin: 1vh 20px 0 0;
@@ -251,7 +251,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1vh 0 0 0;
+  margin: 1.5vh 0 0 0;
 }
 
 .answer img {
