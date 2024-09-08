@@ -753,7 +753,8 @@ select:focus {
     margin: 10px 0 5px 0;
   }
   .front .answer {
-    bottom: 1vh;
+    bottom: 1.8vh;
+    left: 28%;
   }
 }
 @media (max-width: 375px) {
