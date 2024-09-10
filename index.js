@@ -309,5 +309,18 @@ function isElementVisible(selector) {
 }
 
 
-
+function handleBlurValidation(form) {
+    const inputs = form.querySelectorAll('input, select, textarea');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function(event) {
+            const inputElement = event.target;
+            if (!inputElement.checkValidity()) {  
+                inputElement.style.border = "2px solid red";  
+            } else {
+                inputElement.style.border = "1px solid white";  
+            }
+        });
+    });
+}
 
