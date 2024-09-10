@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initCardFlip(cardWrapper, card, closeBtn);
     initFormValidation(form, submitBtn);
     initConditionalDisplay(form);
-    handleBlurValidation(form);
+    
 
     emailjs.init({
         publicKey: EMAILJS_PUBLIC_KEY,
