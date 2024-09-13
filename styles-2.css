@@ -677,6 +677,7 @@ select:focus {
   .notification,
   .error-notification {
     position: fixed;
+    padding: 15px 0 0 0;
     top: 0;
     left: 0;
     width: 100%;
