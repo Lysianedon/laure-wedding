@@ -123,7 +123,8 @@ body {
   }
 }
 
-.notification {
+.notification,
+.error-notification {
   position: absolute;
   z-index: 100;
   top: 0;
@@ -138,7 +139,8 @@ body {
   height: 60px;
 }
 
-.notification h6 {
+.notification h6,
+.error-notification {
   font-size: 1.1rem;
   color: var(--darkblue);
 }
@@ -406,12 +408,13 @@ textarea,
 select {
   width: 100%;
   padding: 0.6rem 0;
-  border: none;
-  border-bottom: 1px solid #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
   background-color: transparent;
   font-size: 0.95rem;
   color: white;
-  margin-bottom: 0.8rem;
+  margin: 0.8rem 0;
+  padding: 0.4em;
 }
 select {
   border: 1px solid white;
@@ -425,12 +428,12 @@ textarea {
   padding: 8px 15px;
 }
 
-input:focus,
+/* input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-bottom-color: #2a3084;
-}
+  border-color: #2a3084;
+} */
 .radio-option input[type="radio"]:checked {
   background-color: #2a3084;
   border-color: #2a3084;
@@ -497,7 +500,7 @@ select:focus {
   color: black;
 }
 
-.disabled-btn {
+/* .disabled-btn {
   background-color: #b9b9b9;
   color: #ededed;
   cursor: not-allowed;
@@ -507,7 +510,7 @@ select:focus {
 .disabled-btn:focus {
   background-color: #b9b9b9 !important;
   color: #ededed !important;
-}
+} */
 
 /**
  * ==============================================
