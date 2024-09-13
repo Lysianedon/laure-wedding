@@ -677,6 +677,9 @@ select:focus {
   .notification,
   .error-notification {
     position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
   .cardWrapper {
     width: 63vw;
