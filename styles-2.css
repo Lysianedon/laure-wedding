@@ -160,9 +160,10 @@ body {
   max-width: 600px;
   height: 78vh;
   min-height: 480px;
-  max-height: 745px;
+  max-height: 775px;
   cursor: pointer;
   perspective: 1000px;
+  /* border: 20px solid green; */
 }
 
 .card {
