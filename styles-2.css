@@ -141,7 +141,7 @@ body {
 
 .notification h6,
 .error-notification {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: var(--darkblue);
 }
 
@@ -681,6 +681,9 @@ select:focus {
     top: 0;
     left: 0;
     width: 100%;
+  }
+  .notification {
+    padding: 10px 0 0 0;
   }
   .cardWrapper {
     width: 63vw;
