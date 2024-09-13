@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initCardFlip(cardWrapper, card, closeBtn);
     initFormValidation(form, submitBtn);
     initConditionalDisplay(form);
+    reinitInputColor();
     // form.addEventListener("input", function (event) {
     //     if (window.getComputedStyle(event.target).display !== 'none') {
     //         validateFieldsUpTo(event.target);
@@ -100,7 +101,9 @@ function validateForm(form) {
 
     // Check if the name is valid
     const name = form.name.value.trim();
+    console.log(form.name);
     if (name === "") {
+        form.name.style.border = "1px solid red";
         errorMessage = "Il manque ton nom, jeune Padawan !";
         isValid = false;
     }
@@ -110,10 +113,11 @@ function validateForm(form) {
         const attendance = form.querySelector('input[name="attendance"]:checked');
         if (!attendance) {
             errorMessage = errorMessage || "Tu dois indiquer si tu seras présent(e) ou non !";
-            return false;
+            isValid = false;
         } else {
             const guests = form.guests.value.trim();
             if (guests === "" || guests <= 0) {
+                form.guests.style.border = "1px solid red";
                 errorMessage = "N'oublie pas de nous dire combien vous serez !"
                 isValid = false;
             }
@@ -124,7 +128,7 @@ function validateForm(form) {
     if (isElementVisible('.children-block')) {
         const children = form.children.value.trim();
         if (children === "" || children < 0) {
-            // form.children.style.borderBottom = "1px solid red";
+            form.children.style.border = "1px solid red";
             errorMessage = errorMessage || "Combien d'enfants seront présents ?";
             isValid = false;
         }
@@ -152,12 +156,13 @@ function validateForm(form) {
     if (isElementVisible('.food-diet-block')) {
         const diet = form.diet.value.trim();
         if (diet === "") {
+            form.diet.style.border = "1px solid red";
             errorMessage = errorMessage || "Halte ! Tu n'as pas répondu à la question sur ton régime alimentaire..."
             isValid = false;
         }
     }
     if(!isValid){
-        displayErrorNotification(errorMessage || "Ep ep ep ! Il manque des infos, jeune padawan !", 3000);
+        displayErrorNotification(errorMessage || "Ep ep ep ! Il manque des infos, jeune Padawan !", 4500);
     }
 
     isFormValid = isValid;
@@ -338,6 +343,12 @@ function resetConditionalDisplay() {
 function isElementVisible(selector) {
     const element = document.querySelector(selector);
     return element && window.getComputedStyle(element).display !== 'none';
+}
+
+function reinitInputColor(){
+    const form = document.querySelector('form');
+    const allFields = Array.from(form.elements);
+    allFields.forEach(f => f.addEventListener('input', e => {e.target.style.border = "1px solid white";}))
 }
 
 
