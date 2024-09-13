@@ -674,6 +674,10 @@ select:focus {
 }
 
 @media (max-width: 540px) {
+  .notification,
+  .error-notification {
+    position: sticky;
+  }
   .cardWrapper {
     width: 63vw;
     margin-right: 20px;
